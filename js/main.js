@@ -58,18 +58,34 @@
 
   function pad(n) { return String(n).padStart(2, "0"); }
 
+  const sinceLabel = target.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+  const years = C.anniversary.years || 1;
+
+  // ulang tahun anniversary selalu tanggal & bulan yang sama
+  const occurrenceIn = (year) => new Date(year, target.getMonth(), target.getDate(), 0, 0, 0);
+  const dayLabel = (d) => d.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+
   function tick() {
     const now = new Date();
-    let next = target;
+    const thisYear = occurrenceIn(now.getFullYear());
+    const isToday = thisYear.getDate() === now.getDate() && thisYear.getMonth() === now.getMonth();
+    const daysTogether = Math.max(0, Math.floor((now - target) / 86400000));
 
+    setText("#heroDays", daysTogether + " hari bersama ♥");
+
+    if (isToday) {
+      // hari anniversary-nya — hitung mundur berhenti di 00
+      setText("#counterSince", "Hari ini jugaPEAT! 🎉 Anniversary ke-" + years + " kita 💗 — " + daysTogether + " hari bersama");
+      ["days", "hours", "minutes", "seconds"].forEach((u) => { boxes[u].textContent = "00"; });
+      return;
+    }
+
+    let next = thisYear;
     if (next <= now) {
-      // sudah lewat: hitung mundur ke anniversary tahun depan
-      next = new Date(target.getTime());
-      while (next <= now) next.setFullYear(next.getFullYear() + 1);
-      setText("#counterSince", "Sudah lewat! Berikutnya: " +
-        next.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" }));
+      next = occurrenceIn(now.getFullYear() + 1);
+      setText("#counterSince", "Sudah lewat! Berikutnya: " + dayLabel(next) + " ✨ — dan " + years + " tahun kita tetap terasa.");
     } else {
-      setText("#counterSince", "Sejak " + sinceLabel + " — dan terus berjalan.");
+      setText("#counterSince", "Sejak " + sinceLabel + " — " + daysTogether + " hari bersama, dan terus berjalan.");
     }
 
     const diff = next - now;
@@ -78,7 +94,6 @@
     boxes.minutes.textContent = pad(Math.floor(diff / 60000) % 60);
     boxes.seconds.textContent = pad(Math.floor(diff / 1000) % 60);
   }
-  const sinceLabel = target.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
   tick();
   setInterval(tick, 1000);
 
@@ -127,6 +142,11 @@
     const grid = $("#galleryGrid");
     grid.innerHTML = "";
     current = allPhotos().filter((p) => filter === "all" || (p.type || "foto") === filter);
+
+    // sembunyikan filter "Video" kalau tidak ada video sama sekali
+    const hasVideo = allPhotos().some((p) => (p.type || "foto") === "video");
+    const videoChip = $('.chip[data-filter="video"]');
+    if (videoChip) videoChip.style.display = hasVideo ? "" : "none";
 
     current.forEach((p, i) => {
       const item = document.createElement("div");

@@ -7,23 +7,24 @@ const CONFIG = {
 
   /* ---------- Identitas ---------- */
   names: {
-    a: "Ayu",          // nama orang pertama (display besar)
-    b: "Hakim",        // nama orang kedua
-    from: "Hakim",     // footer: dibuat oleh
-    to: "Ayu"          // footer: untuk
+    a: "Ade",           // nama orang pertama (display besar)
+    b: "Cita",          // nama orang kedua
+    from: "Ade",        // footer: dibuat oleh
+    to: "Cita"          // footer: untuk
   },
 
   /* ---------- Tanggal anniversary ----------
      Format: 'YYYY-MM-DD HH:MM:SS' (waktu lokal) atau 'YYYY-MM-DD'
      Contoh: '2023-08-17 19:00:00'                                        */
   anniversary: {
-    date: "2023-08-17 19:00:00",
-    label: "17 Agustus 2023"     // teks tanggal yang ditampilkan
+    date: "2025-10-21 00:00:00",       // tanggal jadian — 1 tahun = 21 Oktober 2026
+    label: "21 Oktober 2026",          // teks tanggal yang ditampilkan
+    years: 1                           // anniversary ke-berapa
   },
 
   /* ---------- Hero ---------- */
   hero: {
-    eyebrow: "Happy Anniversary",
+    eyebrow: "Happy Anniversary ke-1",
     tagline: "Terima kasih sudah menjadi bagian terbaik dalam hidupku."
   },
 
@@ -33,7 +34,7 @@ const CONFIG = {
     hint: "klik amplopnya untuk dibuka ✉",
     hi: "Halo sayang,",
     body: "Kalau aku ini jadi satu lagu, kamu pasti ada di setiap baitnya.\n\nTerima kasih sudah hadir di hari-hari yang biasa, dan menjadikannya hari yang luar biasa. Terima kasih untuk tawamu yang bahkan saat aku sedang serius, dan untuk diamnya yang selalu terasa aman.\n\nAku tidak akan selalu bisa melakukan segalanya dengan benar. Tapi aku selalu akan ada di sisiimu, menjemput, ke mana pun kamu butuh.\n\nTerima kasih sudah memilih aku, dan terima kasih aku memilih kamu.\n\nSelamat anniversary. Semoga ke depan kita makin dekat, bukan makin jauh.",
-    sign: "— Hakim"
+    sign: "— Ade"
   },
 
   /* ---------- Galeri ----------
@@ -43,18 +44,20 @@ const CONFIG = {
      Foto tambahan bisa di-upload lewat tombol “Tambah Foto”
      (tersimpan di browser, jadi di perangkat ini saja).                 */
   photos: [
-    { src: "assets/photos/sample-1.svg", cap: "Hari pertama kita", type: "foto" },
-    { src: "assets/photos/sample-2.svg", cap: "Liburan santai", type: "foto" },
-    { src: "assets/photos/sample-3.svg", cap: "Foto bareng", type: "foto" },
-    { src: "assets/photos/sample-4.svg", cap: "Momen kecil yang manis", type: "foto" }
+    { src: "assets/photos/ruwang-kita.jpg", cap: "Ruang pertama kali 💫", type: "foto" },
+    { src: "assets/photos/sanubari-coffe.jpg", cap: "Sanubari Coffee ☕", type: "foto" },
+    { src: "assets/photos/villa.jpg", cap: "Villa bareng 🏡", type: "foto" },
+    { src: "assets/photos/curug.jpg", cap: "Main ke Curug 🌊", type: "foto" }
   ],
 
   /* ---------- Timeline / Perjalanan ---------- */
   timeline: [
     { date: "Awalnya", icon: "👋", title: "Kenalan", text: "Mulai obrolan sederhana yang ternyata panjangnya tidak ada ujungnya." },
-    { date: "Pertemuan", icon: "☕", title: "Kopi pertama", text: "Satu cangkir kopi dan obrolan yang tidak ada ujungnya." },
-    { date: "Jadian", icon: "💘", title: "Resmi jadian", text: "Hari di mana semua hal terasa lebih ringan dan lebih menyenangkan." },
-    { date: "Petualangan", icon: "✈️", title: "Ber-travel", text: "Banyak tempat baru, banyak cerita baru." },
+    { date: "Ruang pertama kali", icon: "💫", title: "Mulai dari satu ruang", text: "Tempat pertama di mana semua terasa mungkin." },
+    { date: "21 Oktober 2025", icon: "💘", title: "Resmi jadian", text: "Hari di mana semua hal terasa lebih ringan dan lebih menyenangkan." },
+    { date: "Sanubari Coffee", icon: "☕", title: "Kopi pertama", text: "Satu cangkir kopi dan obrolan yang tidak ada ujungnya." },
+    { date: "Villa", icon: "🏡", title: "Weekend berdua", text: "Waktu yang pelan, tanpa plans, dan tetap menyenangkan." },
+    { date: "Curug", icon: "🌊", title: "Petualangan kecil", text: "Banyak tempat baru, banyak cerita baru." },
     { date: "Sekarang", icon: "💍", title: "Terus bersama", text: "Dan aku berharap ini bukan akhir, tapi awal cerita baru." }
   ],
 
@@ -70,12 +73,9 @@ const CONFIG = {
 
   /* ---------- Musik ----------
      Taruh file .mp3 / .m4a / .wav di folder assets/music/
-     Ganti title dengan judul lagunya.
-     (3 lagu contoh sudah tersedia: sample-1.wav s/d sample-3.wav)   */
+     Ganti title dengan judul lagunya.                                */
   music: [
-    { title: "Melodi Senja", src: "assets/music/sample-1.wav" },
-    { title: "Kembali Padamu", src: "assets/music/sample-2.wav" },
-    { title: "Hari-Hari Bersama", src: "assets/music/sample-3.wav" }
+    { title: "Bila Kau Tak Disampingku", src: "assets/music/bila-kau-tak-disampingku.mp3" }
   ],
 
   /* ---------- Penutup ---------- */

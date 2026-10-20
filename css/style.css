@@ -131,6 +131,12 @@ button{font-family:inherit}
   margin:22px 0 0;font-size:.9rem;letter-spacing:.3em;color:var(--muted);
   animation:fadeUp 1s .35s both;
 }
+.hero__days{
+  margin:16px auto 0;display:inline-block;padding:9px 22px;border-radius:999px;
+  border:1px solid var(--border);background:var(--glass);color:var(--gold);
+  font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;
+  animation:fadeUp 1s .42s both;
+}
 .hero__tag{
   margin:18px auto 0;max-width:540px;color:var(--muted);font-size:1rem;
   animation:fadeUp 1s .45s both;

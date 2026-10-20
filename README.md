@@ -24,6 +24,7 @@ Setelah selesai mengedit, tekan **Ctrl + F5** di browser agar perubahan tampil.
 |---|---|
 | Nama kalian | `names` |
 | Tanggal anniversary | `anniversary.date` (format `'2023-08-17 19:00:00'`) |
+| Tahun anniversary | `anniversary.years` (contoh: `1` untuk anniversary ke-1) |
 | Teks tanggal | `anniversary.label` |
 | Kalimat di hero | `hero.eyebrow`, `hero.tagline` |
 | Isi surat | `letter.body` (pakai `\n` untuk baris baru) |
@@ -82,9 +83,9 @@ project/
 ├─ js/
 │  ├─ config.js          ← SEMUA yang perlu diedit
 │  └─ main.js            ← logika (countdown, galeri, musik)
-└─ assets/
-   ├─ photos/            ← foto kalian (+ 4 contoh)
-   └─ music/             ← lagumu (+ 3 lagu contoh)
+   └─ assets/
+      ├─ photos/            ← foto kalian
+      └─ music/             ← lagumu
 ```
 
 ## ✨ Fitur
